@@ -1,5 +1,4 @@
 /*----- constants -----*/
-const statusDisplay = document.querySelector('.status');
 const winningConditions = [
     [0, 1, 2],
     [3, 4, 5],
@@ -11,6 +10,7 @@ const winningConditions = [
     [2, 4, 6]
 ];
 
+/*----- app's state (variables) -----*/
 let gameActive = true;
 let currentPlayer = "X";
 let gameState = ["", "", "", "", "", "", "", "", ""];
@@ -29,29 +29,29 @@ function boxPlayed(clickedBox, clickedBoxIndex) {
     gameState[clickedBoxIndex] = currentPlayer;
     clickedBox.innerHTML = currentPlayer;
 }
-s
+
 function playerChange() {
     currentPlayer = currentPlayer === "X" ? "O" : "X";
    
 }
 
 function resultValidation() {
-    let roundWon = false;
+    let roundWin = false;
     for (let i = 0; i <= 7; i++) {
         const winCondition = winningConditions[i];
-        let a = gameState[winCondition[0]];
-        let b = gameState[winCondition[1]];
-        let c = gameState[winCondition[2]];
-        if (a === '' || b === '' || c === '') {
+        let x = gameState[winCondition[0]];
+        let y = gameState[winCondition[1]];
+        let z = gameState[winCondition[2]];
+        if (x === '' || y === '' || z === '') {
             continue;
         }
-        if (a === b && b === c) {
-            roundWon = true;
+        if (x === y && y === z) {
+            roundWin = true;
             break
         }
     }
 
-    if (roundWon) {
+    if (roundWin) {
         statusDisplay.innerHTML = winningMessage();
         gameActive = false;
         return;
@@ -79,11 +79,5 @@ function boxClick(clickedBoxEvent) {
     resultValidation();
 }
 
-function restartGame() {
-    gameActive = true;
-    currentPlayer = "X";
-    gameState = ["", "", "", "", "", "", "", "", ""];
-    statusDisplay.innerHTML = currentPlayerTurn();
-    document.querySelectorAll('.box').forEach(box => box.innerHTML = "");
-}
+
 
