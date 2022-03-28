@@ -1,0 +1,47 @@
+body {
+    font-family: 'Major Mono Display', monospace;
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+    background-color: #c8c5d3;
+    color: darkblue;
+    padding: 2vmin;
+    font-size: 6vmin;
+  }
+
+section {
+    text-align: center;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 15vmin;
+    margin: 4vmin auto;
+    animation: pulse 5s infinite;
+}
+
+.box {
+    font-family: "Permanent Marker", cursive;
+    width: 10vmin;
+    height: 10vmin;
+    border: 0.1vmin solid #080808;
+    cursor: pointer;
+    line-height: 8vmin;
+    font-size: 5vmin;
+}
+
+.restart {
+    font-family: 'Major Mono Display', monospace
+    height: 1vmin;
+    font-size: 0.8vmin;
+}
+
+.game-title {
+font-size: 5vmin;
+color: gray;
+}
+    
